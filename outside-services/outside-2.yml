@@ -8,8 +8,15 @@ spec:
     app: kafka
     kafka-broker-id: "2"
   ports:
-  - protocol: TCP
-    targetPort: 9094
-    port: 32402
-    nodePort: 32402
-  type: NodePort
+    - protocol: "TCP"
+      port: 32402
+      targetPort: 9094
+  type: LoadBalancer
+  loadBalancerIP: 35.234.10.79 #this is a FIXED IP WE RESERVE ON Google Cloud
+  externalTrafficPolicy: "Local"
+  # ports:
+  # - protocol: TCP
+  #   targetPort: 9094
+  #   port: 32402
+  #   nodePort: 32402
+  # type: NodePort
